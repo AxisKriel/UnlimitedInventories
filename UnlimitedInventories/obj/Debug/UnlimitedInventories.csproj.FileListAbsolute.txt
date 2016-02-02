@@ -1,0 +1,12 @@
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\UnlimitedInventories.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\UnlimitedInventories.pdb
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\Mono.Data.Sqlite.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\MySql.Data.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\Newtonsoft.Json.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\TerrariaServer.exe
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\TShockAPI.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\HttpServer.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\bin\Debug\BCrypt.Net.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.csprojResolveAssemblyReference.cache
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.dll
+c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.pdb
