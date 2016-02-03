@@ -20,6 +20,8 @@ namespace UnlimitedInventories
         public override string Description { get { return "Enables saving/loading multiple inventories."; } }
         public override Version Version { get { return new Version(1, 0, 0, 0); } }
 
+        public static Dictionary<int, UIPlayer> players = new Dictionary<int, UIPlayer>();
+
         public static Config config = new Config();
         public static string configPath = Path.Combine(TShock.SavePath, "UnlimitedInventories.json");
 
@@ -49,7 +51,8 @@ namespace UnlimitedInventories
         {
             LoadConfig();
             Database.DBConnect();
-            Commands.ChatCommands.Add(new Command("ui.root", UICommands.InventoryCommand, "inventory", "inv") { HelpText = "Saves or loads and inventory." });
+            Database.LoadDatabase();
+            Commands.ChatCommands.Add(new Command("ui.root", UICommands.InventoryCommand, "inventory", "inv") { AllowServer = false, HelpText = "Saves or loads and inventory." });
         }
         #endregion
 

@@ -58,6 +58,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="UICommands.cs" />
+    <Compile Include="UIPlayer.cs" />
     <Compile Include="UnlimitedInventories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
