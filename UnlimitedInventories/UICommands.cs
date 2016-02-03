@@ -49,12 +49,6 @@ namespace UnlimitedInventories
                                 args.Player.SendErrorMessage("You have reached the max amount of inventories.");
                                 return;
                             }
-                            // Now updates the inventory if it already exists
-                            //else if (players[args.Player.User.ID].HasInventory(inventoryName))
-                            //{
-                            //    args.Player.SendErrorMessage("An inventory with the same name already exists.");
-                            //    return;
-                            //}
                             else
                             {
                                 players[args.Player.User.ID].CreateInventory(inventoryName);
@@ -113,7 +107,7 @@ namespace UnlimitedInventories
                             else
                             {
                                 players[args.Player.User.ID].DeleteInventory(inventoryName);
-                                args.Player.SendSuccessMessage($"Removed inventory '{inventoryName}'!");
+                                args.Player.SendSuccessMessage($"Deleted inventory '{inventoryName}'!");
                             }
                         }
                     }
@@ -130,7 +124,7 @@ namespace UnlimitedInventories
                         else
                         {
                             int pageNum;
-                            if (!PaginationTools.TryParsePageNumber(args.Parameters, 2, args.Player, out pageNum))
+                            if (!PaginationTools.TryParsePageNumber(args.Parameters, 1, args.Player, out pageNum))
                                 return;
 
                             PaginationTools.SendPage(args.Player, pageNum, PaginationTools.BuildLinesFromTerms(players[args.Player.User.ID].GetInventories()),

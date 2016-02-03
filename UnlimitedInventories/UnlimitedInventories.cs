@@ -18,7 +18,7 @@ namespace UnlimitedInventories
         public override string Name { get { return "UnlimitedInventories"; } }
         public override string Author { get { return "Professor X"; } }
         public override string Description { get { return "Enables saving/loading multiple inventories."; } }
-        public override Version Version { get { return new Version(1, 0, 0, 0); } }
+        public override Version Version { get { return new Version(1, 0, 1, 0); } }
 
         public static Dictionary<int, UIPlayer> players = new Dictionary<int, UIPlayer>();
 
@@ -34,6 +34,8 @@ namespace UnlimitedInventories
         public override void Initialize()
         {
             ServerApi.Hooks.GameInitialize.Register(this, OnInitialize);
+
+            GeneralHooks.ReloadEvent += OnReload;
         }
 
         protected override void Dispose(bool disposing)
@@ -41,6 +43,8 @@ namespace UnlimitedInventories
             if (disposing)
             {
                 ServerApi.Hooks.GameInitialize.Deregister(this, OnInitialize);
+
+                GeneralHooks.ReloadEvent -= OnReload;
             }
             base.Dispose(disposing);
         }
@@ -52,7 +56,14 @@ namespace UnlimitedInventories
             LoadConfig();
             Database.DBConnect();
             Database.LoadDatabase();
+
             Commands.ChatCommands.Add(new Command("ui.root", UICommands.InventoryCommand, "inventory", "inv") { AllowServer = false, HelpText = "Saves or loads and inventory." });
+        }
+
+        private void OnReload(ReloadEventArgs args)
+        {
+            LoadConfig();
+            Database.LoadDatabase();
         }
         #endregion
 
