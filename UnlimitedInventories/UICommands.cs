@@ -42,9 +42,12 @@ namespace UnlimitedInventories
                         }
                         else
                         {
+                            if (!players.ContainsKey(args.Player.User.ID))
+                                players.Add(args.Player.User.ID, new UIPlayer(args.Player.User.ID, new Dictionary<string, NetItem[]>()));
+
                             args.Parameters.RemoveRange(0, 1); // Remove "save"
                             string inventoryName = string.Join(" ", args.Parameters.Select(x => x));
-                            if (players[args.Player.User.ID].InventoryCount() >= config.MaxInventories && !args.Player.Group.HasPermission(config.BypassMaxPermission))
+                            if (players.ContainsKey(args.Player.User.ID) && players[args.Player.User.ID].InventoryCount() >= config.MaxInventories && !args.Player.Group.HasPermission(config.BypassMaxPermission))
                             {
                                 args.Player.SendErrorMessage("You have reached the max amount of inventories.");
                                 return;

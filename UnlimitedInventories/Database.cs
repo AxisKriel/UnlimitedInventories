@@ -73,9 +73,6 @@ namespace UnlimitedInventories
 
         internal static void SaveInventory(int UserID, string Name, NetItem[] Inventory, bool updateExisting = false)
         {
-            if (!players.ContainsKey(UserID))
-                players.Add(UserID, new UIPlayer(UserID, new Dictionary<string, NetItem[]>() { [Name] = Inventory }));
-
             if (!updateExisting)
             {
                 players[UserID].Inventories.Add(Name, Inventory);

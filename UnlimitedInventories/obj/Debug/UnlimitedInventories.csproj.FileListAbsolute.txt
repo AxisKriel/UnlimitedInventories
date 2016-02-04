@@ -10,3 +10,5 @@ c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\Unlimit
 c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.csprojResolveAssemblyReference.cache
 c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.dll
 c:\users\sasa\documents\visual studio 2015\Projects\UnlimitedInventories\UnlimitedInventories\obj\Debug\UnlimitedInventories.pdb
+C:\Users\sasa\Desktop\tshock_4.3.12\ServerPlugins\UnlimitedInventories.dll
+C:\Users\sasa\Desktop\tshock_4.3.12\ServerPlugins\UnlimitedInventories.pdb
