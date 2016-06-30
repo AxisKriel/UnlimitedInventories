@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\Desktop\tshock_4.3.12\ServerPlugins\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,13 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Data.Sqlite">
-      <HintPath>..\..\..\..\..\Desktop\tshock_4.3.12\ServerPlugins\Mono.Data.Sqlite.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\TShockRefs\Mono.Data.Sqlite.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\..\Desktop\tshock_4.3.12\ServerPlugins\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\TShockRefs\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\Desktop\tshock_4.3.12\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\TShockRefs\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,10 +49,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TerrariaServer">
-      <HintPath>..\..\..\..\..\Desktop\tshock_4.3.12\TerrariaServer.exe</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\TShockRefs\TerrariaServer.exe</HintPath>
     </Reference>
     <Reference Include="TShockAPI">
-      <HintPath>..\..\..\..\..\Desktop\tshock_4.3.12\ServerPlugins\TShockAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\TShockRefs\TShockAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

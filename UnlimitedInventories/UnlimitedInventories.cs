@@ -12,66 +12,68 @@ using TShockAPI.Hooks;
 
 namespace UnlimitedInventories
 {
-    [ApiVersion(1, 22)]
-    public class UnlimitedInventories : TerrariaPlugin
-    {
-        public override string Name { get { return "UnlimitedInventories"; } }
-        public override string Author { get { return "Professor X"; } }
-        public override string Description { get { return "Enables saving/loading multiple inventories."; } }
-        public override Version Version { get { return new Version(1, 0, 1, 0); } }
+	[ApiVersion(1, 23)]
+	public class UnlimitedInventories : TerrariaPlugin
+	{
+		public override string Name { get { return "UnlimitedInventories"; } }
+		public override string Author { get { return "Professor X"; } }
+		public override string Description { get { return "Enables saving/loading multiple inventories."; } }
+		public override Version Version { get { return new Version(1, 0, 2, 0); } }
 
-        public static Dictionary<int, UIPlayer> players = new Dictionary<int, UIPlayer>();
+		public static UnlimitedInventories Instance;
 
-        public static Config config = new Config();
-        public static string configPath = Path.Combine(TShock.SavePath, "UnlimitedInventories.json");
+		public Config Configuration = new Config();
+		public Database Database = new Database();
+		public Dictionary<int, UIPlayer> Players = new Dictionary<int, UIPlayer>();
 
-        public UnlimitedInventories(Main game) : base(game)
-        {
+		public UnlimitedInventories(Main game) : base(game)
+		{
+			Instance = this;
+		}
 
-        }
+		#region Initialize/Dispose
+		public override void Initialize()
+		{
+			ServerApi.Hooks.GameInitialize.Register(this, OnInitialize);
 
-        #region Initialize/Dispose
-        public override void Initialize()
-        {
-            ServerApi.Hooks.GameInitialize.Register(this, OnInitialize);
+			GeneralHooks.ReloadEvent += OnReload;
+		}
 
-            GeneralHooks.ReloadEvent += OnReload;
-        }
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				ServerApi.Hooks.GameInitialize.Deregister(this, OnInitialize);
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                ServerApi.Hooks.GameInitialize.Deregister(this, OnInitialize);
+				GeneralHooks.ReloadEvent -= OnReload;
+			}
+			base.Dispose(disposing);
+		}
+		#endregion
 
-                GeneralHooks.ReloadEvent -= OnReload;
-            }
-            base.Dispose(disposing);
-        }
-        #endregion
+		#region Hooks
+		private void OnInitialize(EventArgs args)
+		{
+			LoadConfig();
+			Database.DBConnect();
+			Database.LoadDatabase();
 
-        #region Hooks
-        private void OnInitialize(EventArgs args)
-        {
-            LoadConfig();
-            Database.DBConnect();
-            Database.LoadDatabase();
+			Commands.ChatCommands.Add(new Command("ui.root", UICommands.InventoryCommand, "inventory", "inv") { AllowServer = false, HelpText = "Saves or loads and inventory." });
+		}
 
-            Commands.ChatCommands.Add(new Command("ui.root", UICommands.InventoryCommand, "inventory", "inv") { AllowServer = false, HelpText = "Saves or loads and inventory." });
-        }
+		private void OnReload(ReloadEventArgs args)
+		{
+			LoadConfig();
+			Database.LoadDatabase();
+		}
+		#endregion
 
-        private void OnReload(ReloadEventArgs args)
-        {
-            LoadConfig();
-            Database.LoadDatabase();
-        }
-        #endregion
-
-        #region Load Config
-        private void LoadConfig()
-        {
-            (config = config.Read(configPath)).Write(configPath);
-        }
-        #endregion
-    }
+		#region Load Config
+		private void LoadConfig()
+		{
+			string configPath = Path.Combine(TShock.SavePath, "UnlimitedInventories.json");
+			(Configuration = Config.Read(configPath)).Write(configPath);
+		}
+		#endregion
+	}
 }
