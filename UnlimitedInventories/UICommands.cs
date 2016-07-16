@@ -69,6 +69,11 @@ namespace UnlimitedInventories
 							args.Player.SendErrorMessage("Invalid syntax: {0}inventory load <inventory name>", TShock.Config.CommandSpecifier);
 							return;
 						}
+						else if (!Instance.Players.ContainsKey(args.Player.User.ID))
+						{
+							args.Player.SendErrorMessage("You don't have any inventories saved!");
+							return;
+						}
 						else
 						{
 							args.Parameters.RemoveRange(0, 1);
@@ -96,6 +101,11 @@ namespace UnlimitedInventories
 						if (args.Parameters.Count != 2)
 						{
 							args.Player.SendErrorMessage("Invalid syntax: {0}inventory delete <name>", TShock.Config.CommandSpecifier);
+							return;
+						}
+						else if (!Instance.Players.ContainsKey(args.Player.User.ID))
+						{
+							args.Player.SendErrorMessage("You don't have any inventories saved!");
 							return;
 						}
 						else
