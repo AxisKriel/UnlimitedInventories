@@ -18,7 +18,7 @@ namespace UnlimitedInventories
 		public override string Name { get { return "UnlimitedInventories"; } }
 		public override string Author { get { return "Professor X"; } }
 		public override string Description { get { return "Enables saving/loading multiple inventories."; } }
-		public override Version Version { get { return new Version(1, 0, 2, 0); } }
+		public override Version Version { get { return new Version(1, 0, 3, 0); } }
 
 		public static UnlimitedInventories Instance;
 

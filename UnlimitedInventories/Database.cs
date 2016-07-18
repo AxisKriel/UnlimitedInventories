@@ -18,7 +18,7 @@ namespace UnlimitedInventories
 	{
 		public static IDbConnection db;
 
-		internal static void DBConnect()
+		public void DBConnect()
 		{
 			switch (TShock.Config.StorageType.ToLower())
 			{
@@ -51,7 +51,7 @@ namespace UnlimitedInventories
 				new SqlColumn("Inventory", MySqlDbType.Text)));
 		}
 
-		internal static void LoadDatabase()
+		public void LoadDatabase()
 		{
 			Instance.Players.Clear();
 
@@ -71,7 +71,7 @@ namespace UnlimitedInventories
 			}
 		}
 
-		internal static void SaveInventory(int UserID, string Name, NetItem[] Inventory, bool updateExisting = false)
+		public void SaveInventory(int UserID, string Name, NetItem[] Inventory, bool updateExisting = false)
 		{
 			if (!updateExisting)
 			{
@@ -85,7 +85,7 @@ namespace UnlimitedInventories
 			}
 		}
 
-		internal static void DeleteInventory(int UserID, string Name)
+		public void DeleteInventory(int UserID, string Name)
 		{
 			db.Query("DELETE FROM UnlimitedInventories WHERE UserID=@0 AND Name=@1;", UserID.ToString(), Name);
 		}

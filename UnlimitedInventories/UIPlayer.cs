@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Terraria;
 using TShockAPI;
 using static TShockAPI.NetItem;
+using static UnlimitedInventories.UnlimitedInventories;
 
 namespace UnlimitedInventories
 {
@@ -83,7 +84,7 @@ namespace UnlimitedInventories
 					}
 				}
 
-				Database.SaveInventory(UserID, name, PlayerInventory, HasInventory(name));
+				Instance.Database.SaveInventory(UserID, name, PlayerInventory, HasInventory(name));
 			}
 		}
 
@@ -190,7 +191,7 @@ namespace UnlimitedInventories
 		public void DeleteInventory(string name)
 		{
 			this.Inventories.Remove(name);
-			Database.DeleteInventory(UserID, name);
+			Instance.Database.DeleteInventory(UserID, name);
 		}
 
 		#region Miscellaneous
