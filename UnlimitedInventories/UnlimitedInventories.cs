@@ -12,7 +12,7 @@ using TShockAPI.Hooks;
 
 namespace UnlimitedInventories
 {
-	[ApiVersion(1, 25)]
+	[ApiVersion(1, 26)]
 	public class UnlimitedInventories : TerrariaPlugin
 	{
 		public override string Name { get { return "UnlimitedInventories"; } }
