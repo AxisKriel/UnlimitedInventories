@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnlimitedInventories", "UnlimitedInventories\UnlimitedInventories.csproj", "{989EFA4E-792E-497F-BC93-5645A1BA2A07}"
 EndProject
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Debug|Any CPU.Build.0 = Debug|x86
+		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Release|Any CPU.ActiveCfg = Release|x86
+		{989EFA4E-792E-497F-BC93-5645A1BA2A07}.Release|Any CPU.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

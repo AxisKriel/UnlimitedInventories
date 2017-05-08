@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
-using TerrariaApi.Server;
 using TShockAPI;
 using static UnlimitedInventories.UnlimitedInventories;
 
@@ -142,8 +137,7 @@ namespace UnlimitedInventories
 						}
 						else
 						{
-							int pageNum;
-							if (!PaginationTools.TryParsePageNumber(args.Parameters, 1, args.Player, out pageNum))
+							if (!PaginationTools.TryParsePageNumber(args.Parameters, 1, args.Player, out int pageNum))
 								return;
 
 							PaginationTools.SendPage(args.Player, pageNum, PaginationTools.BuildLinesFromTerms(Instance.Players[args.Player.User.ID].GetInventories()),

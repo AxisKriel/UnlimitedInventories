@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Data;
+using System.Reflection;
 using Terraria;
 using TerrariaApi.Server;
 using TShockAPI;
@@ -12,13 +9,13 @@ using TShockAPI.Hooks;
 
 namespace UnlimitedInventories
 {
-	[ApiVersion(1, 25)]
+	[ApiVersion(2, 1)]
 	public class UnlimitedInventories : TerrariaPlugin
 	{
 		public override string Name { get { return "UnlimitedInventories"; } }
 		public override string Author { get { return "Professor X"; } }
 		public override string Description { get { return "Enables saving/loading multiple inventories."; } }
-		public override Version Version { get { return new Version(1, 0, 3, 0); } }
+		public override Version Version { get { return Assembly.GetExecutingAssembly().GetName().Version; } }
 
 		public static UnlimitedInventories Instance;
 
