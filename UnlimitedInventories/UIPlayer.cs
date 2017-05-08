@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
+using Terraria.Localization;
 using TShockAPI;
 using static TShockAPI.NetItem;
 using static UnlimitedInventories.UnlimitedInventories;
@@ -100,7 +98,7 @@ namespace UnlimitedInventories
 				if (!SSC)
 				{
 					Main.ServerSideCharacter = true;
-					NetMessage.SendData((int)PacketTypes.WorldInfo, player.Index, -1, "");
+					NetMessage.SendData((int)PacketTypes.WorldInfo, player.Index, -1, NetworkText.Empty);
 				}
 
 				for (int i = 0; i < MaxInventory; i++)
@@ -115,8 +113,8 @@ namespace UnlimitedInventories
 							player.TPlayer.inventory[i].stack = Inventory[i].Stack;
 						}
 
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, player.TPlayer.inventory[i].name, player.Index, i, player.TPlayer.inventory[i].prefix);
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, player.TPlayer.inventory[i].name, player.Index, i, player.TPlayer.inventory[i].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, NetworkText.FromLiteral(player.TPlayer.inventory[i].Name), player.Index, i, player.TPlayer.inventory[i].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, NetworkText.FromLiteral(player.TPlayer.inventory[i].Name), player.Index, i, player.TPlayer.inventory[i].prefix);
 					}
 					else if (i < InventorySlots + ArmorSlots)
 					{
@@ -130,8 +128,8 @@ namespace UnlimitedInventories
 							player.TPlayer.armor[index].stack = Inventory[i].Stack;
 						}
 
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, player.TPlayer.armor[index].name, player.Index, i, player.TPlayer.armor[index].prefix);
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, player.TPlayer.armor[index].name, player.Index, i, player.TPlayer.armor[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, NetworkText.FromLiteral(player.TPlayer.armor[index].Name), player.Index, i, player.TPlayer.armor[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, NetworkText.FromLiteral(player.TPlayer.armor[index].Name), player.Index, i, player.TPlayer.armor[index].prefix);
 					}
 					else if (i < InventorySlots + ArmorSlots + DyeSlots)
 					{
@@ -145,8 +143,8 @@ namespace UnlimitedInventories
 							player.TPlayer.dye[index].stack = Inventory[i].Stack;
 						}
 
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, player.TPlayer.dye[index].name, player.Index, i, player.TPlayer.dye[index].prefix);
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, player.TPlayer.dye[index].name, player.Index, i, player.TPlayer.dye[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, NetworkText.FromLiteral(player.TPlayer.dye[index].Name), player.Index, i, player.TPlayer.dye[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, NetworkText.FromLiteral(player.TPlayer.dye[index].Name), player.Index, i, player.TPlayer.dye[index].prefix);
 					}
 					else if (i < InventorySlots + ArmorSlots + DyeSlots + MiscEquipSlots)
 					{
@@ -160,8 +158,8 @@ namespace UnlimitedInventories
 							player.TPlayer.miscEquips[index].stack = Inventory[i].Stack;
 						}
 
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, player.TPlayer.miscEquips[index].name, player.Index, i, player.TPlayer.miscEquips[index].prefix);
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, player.TPlayer.miscEquips[index].name, player.Index, i, player.TPlayer.miscEquips[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, NetworkText.FromLiteral(player.TPlayer.miscEquips[index].Name), player.Index, i, player.TPlayer.miscEquips[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, NetworkText.FromLiteral(player.TPlayer.miscEquips[index].Name), player.Index, i, player.TPlayer.miscEquips[index].prefix);
 					}
 					else if (i < InventorySlots + ArmorSlots + DyeSlots + MiscEquipSlots + MiscDyeSlots)
 					{
@@ -175,15 +173,15 @@ namespace UnlimitedInventories
 							player.TPlayer.miscDyes[index].stack = Inventory[i].Stack;
 						}
 
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, player.TPlayer.miscDyes[index].name, player.Index, i, player.TPlayer.miscDyes[index].prefix);
-						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, player.TPlayer.miscDyes[index].name, player.Index, i, player.TPlayer.miscDyes[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, -1, -1, NetworkText.FromLiteral(player.TPlayer.miscDyes[index].Name), player.Index, i, player.TPlayer.miscDyes[index].prefix);
+						NetMessage.SendData((int)PacketTypes.PlayerSlot, player.Index, -1, NetworkText.FromLiteral(player.TPlayer.miscDyes[index].Name), player.Index, i, player.TPlayer.miscDyes[index].prefix);
 					}
 				}
 
 				if (!SSC)
 				{
 					Main.ServerSideCharacter = false;
-					NetMessage.SendData((int)PacketTypes.WorldInfo, player.Index, -1, "");
+					NetMessage.SendData((int)PacketTypes.WorldInfo, player.Index, -1, NetworkText.Empty);
 				}
 			}
 		}
